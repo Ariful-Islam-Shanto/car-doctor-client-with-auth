@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
           });
       } 
       else {
+        console.log('Log out');
         axios
           .post(
             "https://car-doctor-server-eight-sage.vercel.app/clearCookie",

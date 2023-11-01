@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 //? Creating a baseUrl for out main path so that we don't have to repeat it
-//? every time. We can user axiosSecure instead of 'http://localhost:5000', https://car-doctor-server-eight-sage.vercel.app
+//? every time. We can user axiosSecure instead of 'https://car-doctor-server-eight-sage.vercel.app', https://car-doctor-server-eight-sage.vercel.app
 const axiosSecure = axios.create({
     baseURL : 'https://car-doctor-server-eight-sage.vercel.app',
     withCredentials : true
