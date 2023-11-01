@@ -31,12 +31,12 @@ const route = createBrowserRouter([
         {
             path: '/details/:id',
             element: <Details></Details>,
-            loader: () => fetch(`http://localhost:5000/services`)
+            loader: () => fetch(`https://car-doctor-server-eight-sage.vercel.app/services`)
         },
         {
             path: '/checkout/:id',
-            element: <Checkout></Checkout>,
-            loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+            element: <PrivateRoute> <Checkout></Checkout></PrivateRoute>,
+            loader: ({params}) => fetch(`https://car-doctor-server-eight-sage.vercel.app/service/${params.id}`)
         },
         {
             path: '/bookings',

@@ -1,0 +1,8 @@
+How to make a custom hook?
+
+DRY : Do not Repeat Yourself.
+
+Ans: If you have to do a certain type of work more than one time. That means
+if you have call an api, make an useState or any other things more than one 
+time. Then wrap it in a function and return the value you want to get.
+and at the last export it from the file.

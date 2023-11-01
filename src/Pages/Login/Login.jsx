@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import img from "../../assets/images/login/login.svg";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Auth Provider/AuthProvider";
+// import { AuthContext } from "../../Auth Provider/AuthProvider";
 import axios from "axios";
+import useAuth from "../../Custom Hook/useAuth";
 
 const Login = () => {
 
-  const {signIn} = useContext(AuthContext);
+  // const {signIn} = useContext(AuthContext);
+  //? custom hook
+  const {signIn} = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,11 +25,12 @@ const Login = () => {
       if(data) {
         alert('Successfully logged in.')
 
-        const user = {email}
-        axios.post(`http://localhost:5000/jwt`, user, {withCredentials:true})
-        .then(data => {
-          console.log(data);
-        })
+        //? This cod below is from module 60
+        // const user = {email}
+        // axios.post(`https://car-doctor-server-eight-sage.vercel.app/jwt`, user, {withCredentials:true})
+        // .then(data => {
+        //   console.log(data);
+        // })
 
       }
     })

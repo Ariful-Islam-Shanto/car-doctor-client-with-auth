@@ -13,7 +13,7 @@ const Details = () => {
 
     const handleService = (id) => {
      
-        fetch(`http://localhost:5000/service/${id}`)
+        fetch(`https://car-doctor-server-eight-sage.vercel.app/service/${id}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);

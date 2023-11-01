@@ -34,7 +34,7 @@ const Checkout = () => {
 
     console.log(order);
 
-    fetch('http://localhost:5000/checkout', {
+    fetch('https://car-doctor-server-eight-sage.vercel.app/checkout', {
         method: "POST",
         headers: {
             'content-type' : 'application/json'

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/icons/logo.svg";
 import { AuthContext } from "../../Auth Provider/AuthProvider";
+import axios from "axios";
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
@@ -99,7 +100,12 @@ const Navbar = () => {
     const handleLogOut = () => {
       logOut()
       .then(() => {
-        alert('Successfully logged out.')
+          // axios.post('https://car-doctor-server-eight-sage.vercel.app/clearCookie', 'logOut', {withCredentials: true})
+          // .then(res => {
+          //   console.log(res.data);
+          // })
+          alert('Successfully logged out.')
+        
       })
     }
   

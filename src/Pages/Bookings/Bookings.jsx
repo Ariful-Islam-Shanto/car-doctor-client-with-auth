@@ -3,21 +3,29 @@ import { AuthContext } from '../../Auth Provider/AuthProvider';
 import { FaCross, FaDeleteLeft } from 'react-icons/fa6';
 import swal from 'sweetalert';
 import axios from 'axios';
+import useAxiosSecure from '../../Custom Hook/useAxiosSecure';
 
 const Bookings = () => {
     const {user, setLoading} = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    // const url = `https://car-doctor-server-eight-sage.vercel.app/bookings?email=${user?.email}`;
+    const url = `/bookings?email=${user?.email}`;
 
     useEffect(() => {
-        axios.get(url, {withCredentials : true}) 
-        .then(data => {
-            setBookings(data.data)
+        // axios.get(url, {withCredentials : true}) 
+        // .then(data => {
+        //     setBookings(data.data)
             
+        // })
+
+        axiosSecure.get(url)
+        .then(res => {
+            setBookings(res.data);
         })
         
-    },[url]);
+    },[url, axiosSecure]);
 
     // console.log(bookings);
 
@@ -31,7 +39,7 @@ const Bookings = () => {
           })
           .then((willDelete) => {
             if (willDelete) {
-                fetch(`http://localhost:5000/delete/${id}`, {
+                fetch(`https://car-doctor-server-eight-sage.vercel.app/delete/${id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())
@@ -54,7 +62,7 @@ const Bookings = () => {
     }
 
     const handleConfirm = (id) => {
-        fetch(`http://localhost:5000/confirm/${id}`, {
+        fetch(`https://car-doctor-server-eight-sage.vercel.app/confirm/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type' : 'application/json'
